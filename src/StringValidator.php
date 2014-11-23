@@ -47,11 +47,11 @@ class StringValidator
      */
     public static function lengthBetween ($string, $min = 0, $max) {
         if (is_string ($string) === false) throw new \Exception('String is not a string');
-        if (is_int ($min) === false && $min ==! 'S' && $min ==! 'I') throw new \Exception('Min is not integer');
+        if (is_int ($min) === false && $min !== 'S' && $min !== 'I') throw new \Exception('Min is not integer');
         if (is_int ($max) === false) throw new \Exception('Max is not integer');
         if ($max < $min) throw new \Exception('Max smaller than min');
 
-        $length = strlen ($string);
+        $length       = strlen ($string);
         $returnString = 'False';
         /*
         switch ($min) {
@@ -73,7 +73,7 @@ class StringValidator
         if ($min === self::SUPERIOR) {
             if ($length > $max) $returnString = 'True';
         }
-        if (is_int ($min) ==! false){
+        if (is_int ($min) === true){
             if ($length < $max && $length > $min) $returnString = 'True';
         }
         return $returnString;
