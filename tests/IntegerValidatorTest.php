@@ -29,19 +29,19 @@ class IntegerValidatorTest extends \PHPUnit_Framework_TestCase
     {
         $max = mt_rand (0,500);
         $min = mt_rand (-500,0);
-        $integer = IntegerValidator::between(0, $min, $max);
+        $integer = IntegerValidator::between (0, $min, $max);
         $this->assertEquals ('True', $integer);
     }
     public function testIntegerValidationSuperior()
     {
         $min = mt_rand (-500,0);
-        $integer = IntegerValidator::between(10, $min, IntegerValidator::PLUS_INFINITY);
+        $integer = IntegerValidator::between (10, $min, IntegerValidator::PLUS_INFINITY);
         $this->assertEquals ('True', $integer);
     }
     public function testIntegerValidationNotInferior()
     {
         $max = mt_rand (0,500);
-        $integer = IntegerValidator::between(501, IntegerValidator::MINUS_INFINITY, $max);
+        $integer = IntegerValidator::between (501, IntegerValidator::MINUS_INFINITY, $max);
         $this->assertEquals ('False', $integer);
     }
 }
