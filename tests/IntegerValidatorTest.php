@@ -10,18 +10,18 @@ namespace tests\Pauline\Validator;
 
 use Pauline\Validator\IntegerValidator;
 
-class IntegerValidatorTest extends \PHPUnit_Framework_TestCase {
-
+class IntegerValidatorTest extends \PHPUnit_Framework_TestCase
+{
     public function testIntegerValidatorEqual()
     {
-        $number = mt_rand (1,1000);
+        $number = mt_rand (1,500);
         $integer = IntegerValidator::equal($number,$number);
         $this->assertEquals ('True', $integer);
     }
     public function testIntegerValidatorNotEqual()
     {
-        $number = mt_rand (1,1000);
-        $number2 = mt_rand (-1000,0);
+        $number = mt_rand (1,500);
+        $number2 = mt_rand (-500,0);
         $integer = IntegerValidator::equal ($number,$number2);
         $this->assertEquals ('False', $integer);
     }
