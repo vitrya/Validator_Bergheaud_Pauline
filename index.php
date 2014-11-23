@@ -15,3 +15,9 @@ $integer = 13;
 //$ValidationInt->equal($integer,12);
 
 echo \Pauline\Validator\IntegerValidator::equal($integer,12);
+
+echo '</br>';
+
+echo \Pauline\Validator\IntegerValidator::between(22, 10, 30);
+
+echo '</br>';
