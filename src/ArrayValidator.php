@@ -11,12 +11,14 @@ namespace Pauline\Validator;
 
 class ArrayValidator
 {
+    /*
     public static function numberElementsBetween($array, $min, $max) {
 
     }
     public static function keyExists($key) {
 
     }
+    */
 }
 
 
