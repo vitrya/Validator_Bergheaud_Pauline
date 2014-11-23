@@ -20,8 +20,7 @@ class BooleanValidator
      * @return string
      * @throws \Exception
      */
-    public static function isTrue($boolean)
-    {
+    public static function isTrue($boolean) {
         if (is_bool($boolean) === false) throw new \Exception('Boolean is not boolean');
         $returnBoolean = ($boolean === true) ? 'True' : 'False';
         return $returnBoolean;

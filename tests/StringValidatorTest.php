@@ -11,9 +11,9 @@ namespace tests\Pauline\Validator;
 
 use Pauline\Validator\StringValidator;
 
-class StringValidatorTest extends \PHPUnit_Framework_TestCase{
-    public function testStringValidatorNotWhiteSpace()
-    {
+class StringValidatorTest extends \PHPUnit_Framework_TestCase
+{
+    public function testStringValidatorNotWhiteSpace() {
         $stringTest = 'azertyuiopqsdfghjklmwxcvbn';
         for ($i = 0; $i < 100; $i++) {
             $stringTest .= mb_substr($stringTest, mt_rand(0, (mb_strlen ($stringTest) - 1)),1);
@@ -21,13 +21,43 @@ class StringValidatorTest extends \PHPUnit_Framework_TestCase{
         $stringValid = StringValidator::noWhiteSpace($stringTest);
         $this->assertEquals($stringValid, 'True');
     }
-    public function testStringValidatorWhiteSpace()
-    {
-        $string = ' b           ';
-
+    public function testStringValidatorWhiteSpace() {
+        $string = ' b';
+        for ($i = 0; $i < 100; $i++) {
+            $string .= ' ';
+        }
         $stringValid = StringValidator::noWhiteSpace($string);
         $this->assertEquals($stringValid, 'False');
     }
+    public function testStringValidatorNotSuperior() {
+        $string = 'b';
+        $rand = rand(101,200);
+        for ($i = 0; $i < 100; $i++) {
+            $string .= 'b';
+        }
+        $stringValid = StringValidator::lengthBetween($string, StringValidator::SUPERIOR, $rand);
+        $this->assertEquals($stringValid, 'False');
+    }
+    public function testStringValidatorInferior() {
+        $string = 'b';
+        $rand = rand(101,200);
+        for ($i = 0; $i < 100; $i++) {
+            $string .= 'b';
+        }
+        $stringValid = StringValidator::lengthBetween($string, StringValidator::INFERIOR, $rand);
+        $this->assertEquals($stringValid, 'True');
+    }
+    public function testStringValidatorBetween() {
+        $string = 'b';
+        $rand = rand(0,99);
+        $rand2 = rand(101,200);
+        for ($i = 0; $i < 100; $i++) {
+            $string .= 'b';
+        }
+        $stringValid = StringValidator::lengthBetween($string, $rand, $rand2);
+        $this->assertEquals($stringValid, 'True');
+    }
+
 
 
 

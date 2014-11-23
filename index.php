@@ -13,14 +13,19 @@ $boolean = true;
 $string = 'Le php c\'est super cool, I love it!!';
 $string2 = 'Test';
 
+echo 'Int equal: ';
 echo \Pauline\Validator\IntegerValidator::equal ($integer,12);
-echo '</br>';
 
+echo '</br> Int between: ';
 echo \Pauline\Validator\IntegerValidator::between ($integer, 10, 30);
-echo '</br>';
 
+echo '</br> Boolean: ';
 echo \Pauline\Validator\BooleanValidator::isTrue ($boolean);
-echo '</br>';
 
+echo '</br> Space: ';
 echo \Pauline\Validator\StringValidator::noWhiteSpace($string2);
+
+echo '</br> between: ';
+echo \Pauline\Validator\StringValidator::lengthBetween($string, \Pauline\Validator\StringValidator::SUPERIOR, 50);
+
 echo '</br>';
