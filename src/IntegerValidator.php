@@ -43,12 +43,11 @@ class IntegerValidator
      * max include
      */
 
-    public static function between($test, $min = 0, $max = self::PLUS_INFINITY)
-    {
+    public static function between($test, $min = 0, $max = self::PLUS_INFINITY) {
         if (is_int ($test) === false) throw new \Exception('test is not integer');
-        if (is_int($min) === false && $min != 'M') throw new \Exception('min is not integer or minimum');
-        if (is_int($max) === false && $max != 'P') throw new \Exception('max is not integer or maximum');
-        if ($min>$max) throw new \Exception('max smaller than min');
+        if (is_int ($min) === false && $min !== 'M') throw new \Exception('min is not integer or minimum');
+        if (is_int ($max) === false && $max !== 'P') throw new \Exception('max is not integer or maximum');
+        if ($min > $max) throw new \Exception('max smaller than min');
 
         /*
        $boolMax = $boolMin = False;
@@ -66,10 +65,10 @@ class IntegerValidator
         }
         */
 
-        $boolMin = ($min === 'M' || $test >= $min) ? True : False ;
-        $boolMax = ($max === 'P' || $test <= $max) ? True : False ;
+        $boolMin = ($min === 'M' || $test >= $min) ? true : false;
+        $boolMax = ($max === 'P' || $test <= $max) ? true : false;
 
-        $bool    = ($boolMin === True && $boolMax === True) ? 'True' : 'False';
+        $bool = ($boolMin === true && $boolMax === true) ? 'True' : 'False';
 
         return $bool;
     }

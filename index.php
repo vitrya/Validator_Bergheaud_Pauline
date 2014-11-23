@@ -9,15 +9,16 @@
 require __DIR__.'/vendor/autoload.php';
 
 $integer = 13;
+$boolean = true;
 
-//$ValidationInt = new \Pauline\Validator\IntegerValidator();
-
-//$ValidationInt->equal($integer,12);
-
-echo \Pauline\Validator\IntegerValidator::equal($integer,12);
+echo \Pauline\Validator\IntegerValidator::equal ($integer,12);
 
 echo '</br>';
 
-echo \Pauline\Validator\IntegerValidator::between(22, 10, 30);
+echo \Pauline\Validator\IntegerValidator::between (22, 10, 30);
+
+echo '</br>';
+
+echo \Pauline\Validator\BooleanValidator::isTrue ($boolean);
 
 echo '</br>';
