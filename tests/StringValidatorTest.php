@@ -23,10 +23,8 @@ class StringValidatorTest extends \PHPUnit_Framework_TestCase{
     }
     public function testStringValidatorWhiteSpace()
     {
-        $string = ' b';
-        for ($i = 0; $i < 100; $i++) {
-            $string .= $string.' ';
-        }
+        $string = ' b           ';
+
         $stringValid = StringValidator::noWhiteSpace($string);
         $this->assertEquals($stringValid, 'False');
     }
