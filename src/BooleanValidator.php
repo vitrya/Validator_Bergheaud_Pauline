@@ -9,12 +9,21 @@
 namespace Pauline\Validator;
 
 
-class BooleanValidator {
+/**
+ * Class BooleanValidator
+ * @package Pauline\Validator
+ */
+class BooleanValidator
+{
+    /**
+     * @param $boolean
+     * @return string
+     * @throws \Exception
+     */
     public static function isTrue($boolean)
     {
         if (is_bool($boolean) === false) throw new \Exception('Boolean is not boolean');
         $returnBoolean = ($boolean === true) ? 'True' : 'False';
         return $returnBoolean;
     }
-
-} 
+}

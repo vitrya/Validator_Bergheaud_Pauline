@@ -8,7 +8,6 @@
 
 namespace Pauline\Validator;
 
-
 /**
  * Class IntegerValidator
  * @package Pauline\Validator
@@ -16,7 +15,7 @@ namespace Pauline\Validator;
 class IntegerValidator
 {
 
-    const PLUS_INFINITY = 'P';
+    const PLUS_INFINITY  = 'P';
     const MINUS_INFINITY = 'M';
 
     /**
@@ -25,8 +24,7 @@ class IntegerValidator
      * @return string
      * @throws \Exception
      */
-    public static function equal ($integer, $number)
-    {
+    public static function equal ($integer, $number) {
         if (is_int ($integer) === false) throw new \Exception('Integer not integer');
         if (is_int ($number) === false) throw new \Exception('Number not integer');
         $bool = ($number === $integer) ? 'True' : 'False';
@@ -35,12 +33,11 @@ class IntegerValidator
 
     /**
      * @param $test
-     * @param string $min
-     * @param string $max
-     * @return string
-     * @throws \Exception
-     * min include
+     * @param int|string $min
+     * @param int|string $max
+     * @throws \Exception min include
      * max include
+     * @return string
      */
 
     public static function between($test, $min = 0, $max = self::PLUS_INFINITY) {
