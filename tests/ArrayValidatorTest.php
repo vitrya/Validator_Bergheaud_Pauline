@@ -19,7 +19,7 @@ class ArrayValidatorTest extends \PHPUnit_Framework_TestCase
             $array [] = 1;
         }
         $strength = count ($array);
-        $testArray = ArrayValidator::numberElementsBetween($array, ArrayValidator::EQUAL, $strength);
+        $testArray = ArrayValidator::numberElementsComparison($array, ArrayValidator::EQUAL, $strength);
         $this->assertTrue($testArray);
     }
     public function testValidatorArrayTallNotEqual() {
@@ -29,7 +29,7 @@ class ArrayValidatorTest extends \PHPUnit_Framework_TestCase
             $array [] = 1;
         }
         $strength = count ($array);
-        $testArray = ArrayValidator::numberElementsBetween($array, ArrayValidator::EQUAL, $strength+1);
+        $testArray = ArrayValidator::numberElementsComparison($array, ArrayValidator::EQUAL, $strength+1);
         $this->assertFalse($testArray);
     }
     public function testValidatorArrayTallBetween() {
@@ -47,7 +47,7 @@ class ArrayValidatorTest extends \PHPUnit_Framework_TestCase
         for ($i = 0; $i < $rand; $i++) {
             $array [] = 1;
         }
-        $testArray = ArrayValidator::numberElementsBetween($array, ArrayValidator::SUPERIOR, 21);
+        $testArray = ArrayValidator::numberElementsComparison($array, ArrayValidator::SUPERIOR, 21);
         $this->assertFalse($testArray);
     }
 

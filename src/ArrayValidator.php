@@ -30,13 +30,25 @@ class ArrayValidator
      * @return bool
      * @throws \Exception
      */
-    public static function numberElementsBetween($array, $min = self::EQUAL, $max) {
-        if (is_int ($min) === false && $min !== 'S' && $min !== 'E' && $min !== 'SE' && $min !== 'I' && $min !== 'IE') throw new \Exception('Min is not integer');
+    public static function numberElementsBetween($array, $min = 0, $max) {
+        if (is_int ($min) === false) throw new \Exception('Min is not integer');
+        if (is_int ($max) === false) throw new \Exception('Max is not integer');
+        if ($max < $min) throw new \Exception('Max is smaller than min');
+        if (is_array ($array) === false) throw new \Exception('Array is not an array');
+
+        $length            = count ($array);
+        $boolNumberElement = ($length >= $min && $length <= $max) ? true : false;
+
+        return $boolNumberElement;
+    }
+
+    public static function numberElementsComparison($array, $min = self::EQUAL, $max) {
+        if ($min !== 'S' && $min !== 'E' && $min !== 'SE' && $min !== 'I' && $min !== 'IE') throw new \Exception('Min have not good argument');
         if (is_int ($max) === false) throw new \Exception('Max is not integer');
         if (is_array ($array) === false) throw new \Exception('Array is not an array');
 
         $length            = count ($array);
-        $boolNumberElement = ((is_int ($min) === true && $min <= $max) || ($min === self::EQUAL && $length === $max)
+        $boolNumberElement = (($min === self::EQUAL && $length === $max)
             || ($min === self::SUPERIOR && $length > $max) || ($min === self::SUPERIOR_OR_EQUAL && $length >= $max)
             || ($min === self::INFERIOR && $length < $max) || ($min === self::INFERIOR_OR_EQUAL && $length <= $max)) ? true : false;
 

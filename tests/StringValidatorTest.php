@@ -38,6 +38,15 @@ class StringValidatorTest extends \PHPUnit_Framework_TestCase
         $stringValid = StringValidator::lengthBetween($string, StringValidator::SUPERIOR, $rand);
         $this->assertEquals($stringValid, false);
     }
+    public function testStringValidatorSuperior() {
+        $string = 'b';
+        $rand = rand(1,98);
+        for ($i = 0; $i < 100; $i++) {
+            $string .= 'b';
+        }
+        $stringValid = StringValidator::lengthBetween($string, StringValidator::SUPERIOR, $rand);
+        $this->assertEquals($stringValid, true);
+    }
     public function testStringValidatorInferior() {
         $string = 'b';
         $rand = rand(101,200);
@@ -46,6 +55,15 @@ class StringValidatorTest extends \PHPUnit_Framework_TestCase
         }
         $stringValid = StringValidator::lengthBetween($string, StringValidator::INFERIOR, $rand);
         $this->assertEquals($stringValid, true);
+    }
+    public function testStringValidatorNotInferior() {
+        $string = 'b';
+        $rand = rand(1,98);
+        for ($i = 0; $i < 100; $i++) {
+            $string .= 'b';
+        }
+        $stringValid = StringValidator::lengthBetween($string, StringValidator::INFERIOR, $rand);
+        $this->assertEquals($stringValid, false);
     }
     public function testStringValidatorBetween() {
         $string = 'b';
@@ -56,6 +74,16 @@ class StringValidatorTest extends \PHPUnit_Framework_TestCase
         }
         $stringValid = StringValidator::lengthBetween($string, $rand, $rand2);
         $this->assertEquals($stringValid, true);
+    }
+    public function testStringValidatorNotBetween() {
+        $string = 'b';
+        $rand2 = rand(201,300);
+        $rand = rand(101,200);
+        for ($i = 0; $i < 100; $i++) {
+            $string .= 'b';
+        }
+        $stringValid = StringValidator::lengthBetween($string, $rand, $rand2);
+        $this->assertEquals($stringValid, false);
     }
 
 

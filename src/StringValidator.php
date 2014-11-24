@@ -25,6 +25,7 @@ class StringValidator
 {
     const SUPERIOR = 'S';
     const INFERIOR = 'I';
+    const EQUAL    = 'E';
     /**
      * @param $string
      * @return boolean
@@ -45,22 +46,23 @@ class StringValidator
      */
     public static function lengthBetween ($string, $min = 0, $max) {
         if (is_string ($string) === false) throw new \Exception('String is not a string');
-        if (is_int ($min) === false && $min !== 'S' && $min !== 'I') throw new \Exception('Min is not integer');
+        if (is_int ($min) === false) throw new \Exception('Min is not integer');
         if (is_int ($max) === false) throw new \Exception('Max is not integer');
         if ($max < $min) throw new \Exception('Max smaller than min');
 
         $length       = strlen ($string);
-        $returnString = false;
+        $returnString = ($length < $max && $length > $min) ? true : false;
+        return $returnString;
+    }
 
-        if ($min === self::INFERIOR) {
-            if ($length < $max) $returnString = true;
-        }
-        if ($min === self::SUPERIOR) {
-            if ($length > $max) $returnString = true;
-        }
-        if (is_int ($min) === true){
-            if ($length < $max && $length > $min) $returnString = true;
-        }
+    public static function lengthComparison ($string, $min, $max) {
+        if (is_string ($string) === false) throw new \Exception('String is not a string');
+        if ($min !== 'S' && $min !== 'I' && $min !== 'E') throw new \Exception('Not good argument');
+        if (is_int ($max) === false) throw new \Exception('Max is not integer');
+
+        $length       = strlen ($string);
+        $returnString = (($min === self::INFERIOR && $length < $max) || ($min === self::SUPERIOR && $length > $max)
+            || $min === self::EQUAL && $length = $max) ? true : false;
         return $returnString;
     }
 }
