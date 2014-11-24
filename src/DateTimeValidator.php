@@ -13,7 +13,8 @@ class DateTimeValidator
 {
     public static function isYear(\dateTime $dateTime, $year){
         if (is_int ($year) === false) throw new \Exception('Year is not integer');
-        $resDat = ($dateTime->format('Y') === $year) ? true : false;
+        echo $dateTime->format('Y');
+        $resDat = ($dateTime->format('Y') == $year) ? true : false;
         return $resDat;
     }
 
