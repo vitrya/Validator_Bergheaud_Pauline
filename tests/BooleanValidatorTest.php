@@ -12,11 +12,29 @@ namespace tests\Pauline\Validator;
 use Pauline\Validator\BooleanValidator;
 
 class BooleanValidatorTest extends \PHPUnit_Framework_TestCase {
-    public function testBoolean()
+    public function testBooleanTrue()
     {
         $boolean = true;
         $test = BooleanValidator::isTrue ($boolean);
         $this->assertEquals($test, true);
+    }
+    public function testBooleanNotTrue()
+    {
+        $boolean = false;
+        $test = BooleanValidator::isTrue ($boolean);
+        $this->assertEquals($test, true);
+    }
+    public function testBooleanNotFalse()
+    {
+        $boolean = true;
+        $test = BooleanValidator::isTrue ($boolean);
+        $this->assertEquals($test, false);
+    }
+    public function testBooleanFalse()
+    {
+        $boolean = false;
+        $test = BooleanValidator::isTrue ($boolean);
+        $this->assertEquals($test, false);
     }
 
 } 
