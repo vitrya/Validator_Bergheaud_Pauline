@@ -53,19 +53,6 @@ class StringValidator
 
         $length       = strlen ($string);
         $returnString = 'False';
-        /*
-        switch ($min) {
-            case self::SUPERIOR :
-                echo 'bla';
-                if ($length > $max) $returnString = 'True';
-                break;
-            case self::INFERIOR :
-                if ($length < $max) $returnString = 'True';
-                break;
-            default :
-                if ($length < $max && $length > $min) $returnString = 'True';
-        }
-        */
 
         if ($min === self::INFERIOR) {
             if ($length < $max) $returnString = 'True';

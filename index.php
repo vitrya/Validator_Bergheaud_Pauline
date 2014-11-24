@@ -12,6 +12,13 @@ $integer = 13;
 $boolean = true;
 $string = 'Le php c\'est super cool, I love it!!';
 $string2 = 'Test';
+$array = [
+    'patate' => 'potatoes',
+    'fleure' =>'flower',
+    'chat' => 'cat',
+    'chien' => 'dog',
+];
+$key = 'chat';
 
 echo 'Int equal: ';
 echo \Pauline\Validator\IntegerValidator::equal ($integer,12);
@@ -25,7 +32,13 @@ echo \Pauline\Validator\BooleanValidator::isTrue ($boolean);
 echo '</br> Space: ';
 echo \Pauline\Validator\StringValidator::noWhiteSpace($string2);
 
-echo '</br> between: ';
+echo '</br> String between: ';
 echo \Pauline\Validator\StringValidator::lengthBetween($string, \Pauline\Validator\StringValidator::SUPERIOR, 50);
 
-echo '</br>';
+echo '</br>String Nomber element in array between :';
+echo \Pauline\Validator\ArrayValidator::numberElementsBetween($array, 0, 5);
+
+echo '</br>key: ';
+echo \Pauline\Validator\ArrayValidator::keyExists($array, $key);
+
+
