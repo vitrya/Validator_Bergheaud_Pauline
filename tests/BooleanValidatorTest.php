@@ -22,7 +22,7 @@ class BooleanValidatorTest extends \PHPUnit_Framework_TestCase {
     {
         $boolean = false;
         $test = BooleanValidator::isTrue ($boolean);
-        $this->assertEquals($test, true);
+        $this->assertEquals($test, false);
     }
     public function testBooleanNotFalse()
     {
@@ -34,7 +34,7 @@ class BooleanValidatorTest extends \PHPUnit_Framework_TestCase {
     {
         $boolean = false;
         $test = BooleanValidator::isTrue ($boolean);
-        $this->assertEquals($test, false);
+        $this->assertEquals($test, true);
     }
 
 } 

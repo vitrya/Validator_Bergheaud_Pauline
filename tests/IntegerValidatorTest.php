@@ -15,14 +15,14 @@ class IntegerValidatorTest extends \PHPUnit_Framework_TestCase
     public function testIntegerValidatorEqual()
     {
         $number = mt_rand (1,500);
-        $integer = IntegerValidator::equal($number,$number);
+        $integer = IntegerValidator::comparison($number,IntegerValidator::EQUAL,$number);
         $this->assertEquals (true, $integer);
     }
     public function testIntegerValidatorNotEqual()
     {
         $number = mt_rand (1,500);
         $number2 = mt_rand (-500,0);
-        $integer = IntegerValidator::equal ($number,$number2);
+        $integer = IntegerValidator::comparison($number,IntegerValidator::EQUAL,$number2);
         $this->assertEquals (false, $integer);
     }
     public function testIntegerValidationBetween()
@@ -32,16 +32,13 @@ class IntegerValidatorTest extends \PHPUnit_Framework_TestCase
         $integer = IntegerValidator::between (0, $min, $max);
         $this->assertEquals (true, $integer);
     }
-    public function testIntegerValidationSuperior()
-    {
-        $min = mt_rand (-500,0);
-        $integer = IntegerValidator::between (10, $min, IntegerValidator::PLUS_INFINITY);
-        $this->assertEquals (true, $integer);
-    }
-    public function testIntegerValidationNotInferior()
+    public function testIntegerValidationNotBetween()
     {
         $max = mt_rand (0,500);
-        $integer = IntegerValidator::between (501, IntegerValidator::MINUS_INFINITY, $max);
+        $min = mt_rand (-500,0);
+        $not = mt_rand(600, 700);
+        $integer = IntegerValidator::between ($not, $min, $max);
         $this->assertEquals (false, $integer);
     }
+
 }

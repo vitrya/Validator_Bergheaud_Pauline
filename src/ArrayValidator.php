@@ -31,7 +31,7 @@ class ArrayValidator
      * @throws \Exception
      */
     public static function numberElementsBetween($array, $min = self::EQUAL, $max) {
-        //if (is_int ($min) === false && $min !== 'S' && $min !== 'E' && $min !== 'SE' && $min !== 'I' && $min !== 'IE') throw new \Exception('Min is not integer');
+        if (is_int ($min) === false && $min !== 'S' && $min !== 'E' && $min !== 'SE' && $min !== 'I' && $min !== 'IE') throw new \Exception('Min is not integer');
         if (is_int ($max) === false) throw new \Exception('Max is not integer');
         if (is_array ($array) === false) throw new \Exception('Array is not an array');
 
