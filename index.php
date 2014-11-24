@@ -10,15 +10,15 @@ require __DIR__.'/vendor/autoload.php';
 
 $integer = 13;
 $boolean = true;
-$string = 'Le php c\'est super cool, I love it!!';
+$string  = 'Le php c\'est super cool, I love it!!';
 $string2 = 'Test';
-$array = [
+$array   = [
     'patate' => 'potatoes',
     'fleure' =>'flower',
     'chat' => 'cat',
     'chien' => 'dog',
 ];
-$key = 'chat';
+$key    = 'chat';
 
 echo 'Int equal: ';
 echo \Pauline\Validator\IntegerValidator::equal ($integer,12);
@@ -36,7 +36,7 @@ echo '</br> String between: ';
 echo \Pauline\Validator\StringValidator::lengthBetween($string, \Pauline\Validator\StringValidator::SUPERIOR, 50);
 
 echo '</br>String Nomber element in array between :';
-echo \Pauline\Validator\ArrayValidator::numberElementsBetween($array, \Pauline\Validator\ArrayValidator::SUPERIOR, 5);
+echo \Pauline\Validator\ArrayValidator::numberElementsBetween($array, \Pauline\Validator\ArrayValidator::SUPERIOR, 21);
 
 echo '</br>key: ';
 echo \Pauline\Validator\ArrayValidator::keyExists($array, $key);

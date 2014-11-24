@@ -22,7 +22,7 @@ class ArrayValidatorTest extends \PHPUnit_Framework_TestCase
         $testArray = ArrayValidator::numberElementsBetween($array, ArrayValidator::EQUAL, $strength);
         $this->assertTrue($testArray);
     }
-    public function testValidatorArrayTallBetweenl() {
+    public function testValidatorArrayTallBetween() {
         $rand = rand(1,20);
         $array = [];
         for ($i = 0; $i < $rand; $i++) {

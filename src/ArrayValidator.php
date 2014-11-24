@@ -25,22 +25,21 @@ class ArrayValidator
         $length = count ($array);
         $boolNumberElement = false;
 
-
         switch ($min){
             case self::EQUAL:
                 if ($length === $max) $boolNumberElement = true;
                 break;
             case self::SUPERIOR:
-                if ($length < $max) $boolNumberElement = true;
-                break;
-            case self::SUPERIOR_OR_EQUAL:
-                if ($length <= $max) $boolNumberElement = true;
-                break;
-            case self::INFERIOR:
                 if ($length > $max) $boolNumberElement = true;
                 break;
-            case self::INFERIOR_OR_EQUAL:
+            case self::SUPERIOR_OR_EQUAL:
                 if ($length >= $max) $boolNumberElement = true;
+                break;
+            case self::INFERIOR:
+                if ($length < $max) $boolNumberElement = true;
+                break;
+            case self::INFERIOR_OR_EQUAL:
+                if ($length <= $max) $boolNumberElement = true;
                 break;
         }
 
