@@ -35,7 +35,7 @@ class StringValidatorTest extends \PHPUnit_Framework_TestCase
         for ($i = 0; $i < 100; $i++) {
             $string .= 'b';
         }
-        $stringValid = StringValidator::lengthBetween($string, StringValidator::SUPERIOR, $rand);
+        $stringValid = StringValidator::lengthComparison($string, StringValidator::SUPERIOR, $rand);
         $this->assertEquals($stringValid, false);
     }
     public function testStringValidatorSuperior() {
@@ -44,7 +44,7 @@ class StringValidatorTest extends \PHPUnit_Framework_TestCase
         for ($i = 0; $i < 100; $i++) {
             $string .= 'b';
         }
-        $stringValid = StringValidator::lengthBetween($string, StringValidator::SUPERIOR, $rand);
+        $stringValid = StringValidator::lengthComparison($string, StringValidator::SUPERIOR, $rand);
         $this->assertEquals($stringValid, true);
     }
     public function testStringValidatorInferior() {
@@ -53,7 +53,7 @@ class StringValidatorTest extends \PHPUnit_Framework_TestCase
         for ($i = 0; $i < 100; $i++) {
             $string .= 'b';
         }
-        $stringValid = StringValidator::lengthBetween($string, StringValidator::INFERIOR, $rand);
+        $stringValid = StringValidator::lengthComparison($string, StringValidator::INFERIOR, $rand);
         $this->assertEquals($stringValid, true);
     }
     public function testStringValidatorNotInferior() {
@@ -62,7 +62,7 @@ class StringValidatorTest extends \PHPUnit_Framework_TestCase
         for ($i = 0; $i < 100; $i++) {
             $string .= 'b';
         }
-        $stringValid = StringValidator::lengthBetween($string, StringValidator::INFERIOR, $rand);
+        $stringValid = StringValidator::lengthComparison($string, StringValidator::INFERIOR, $rand);
         $this->assertEquals($stringValid, false);
     }
     public function testStringValidatorBetween() {
@@ -85,8 +85,4 @@ class StringValidatorTest extends \PHPUnit_Framework_TestCase
         $stringValid = StringValidator::lengthBetween($string, $rand, $rand2);
         $this->assertEquals($stringValid, false);
     }
-
-
-
-
-} 
+}

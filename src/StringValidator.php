@@ -62,7 +62,7 @@ class StringValidator
 
         $length       = strlen ($string);
         $returnString = (($min === self::INFERIOR && $length < $max) || ($min === self::SUPERIOR && $length > $max)
-            || $min === self::EQUAL && $length = $max) ? true : false;
+            || $min === self::EQUAL && $length === $max) ? true : false;
         return $returnString;
     }
 }

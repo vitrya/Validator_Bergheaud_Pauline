@@ -13,6 +13,7 @@ namespace Pauline\Validator;
  * Class ArrayValidator
  * @package Pauline\Validator
  */
+
 class ArrayValidator
 {
     const EQUAL             = 'E';
@@ -25,7 +26,7 @@ class ArrayValidator
 
     /**
      * @param $array
-     * @param string $min
+     * @param int $min
      * @param $max
      * @return bool
      * @throws \Exception
@@ -42,6 +43,13 @@ class ArrayValidator
         return $boolNumberElement;
     }
 
+    /**
+     * @param $array
+     * @param string $min
+     * @param $max
+     * @return bool
+     * @throws \Exception
+     */
     public static function numberElementsComparison($array, $min = self::EQUAL, $max) {
         if ($min !== 'S' && $min !== 'E' && $min !== 'SE' && $min !== 'I' && $min !== 'IE') throw new \Exception('Min have not good argument');
         if (is_int ($max) === false) throw new \Exception('Max is not integer');
