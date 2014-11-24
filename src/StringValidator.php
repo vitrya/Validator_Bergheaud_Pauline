@@ -27,7 +27,7 @@ class StringValidator
     const INFERIOR = 'I';
     const EQUAL    = 'E';
     /**
-     * @param $string
+     * @param string $string
      * @return boolean
      * @throws \Exception
      */
@@ -38,9 +38,9 @@ class StringValidator
     }
 
     /**
-     * @param $string
+     * @param string $string
      * @param int $min
-     * @param $max
+     * @param int $max
      * @return boolean
      * @throws \Exception
      */
@@ -55,6 +55,13 @@ class StringValidator
         return $returnString;
     }
 
+    /**
+     * @param string $string
+     * @param string $min
+     * @param int $max
+     * @return bool
+     * @throws \Exception
+     */
     public static function lengthComparison ($string, $min, $max) {
         if (is_string ($string) === false) throw new \Exception('String is not a string');
         if ($min !== 'S' && $min !== 'I' && $min !== 'E') throw new \Exception('Not good argument');

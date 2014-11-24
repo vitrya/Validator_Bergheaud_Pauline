@@ -23,9 +23,9 @@ class IntegerValidator
 
 
     /**
-     * @param $test
-     * @param int|string $min
-     * @param int|string $max
+     * @param int $test
+     * @param int $min
+     * @param int $max
      * @throws \Exception min include
      * max include
      * @return boolean
@@ -43,9 +43,9 @@ class IntegerValidator
     }
 
     /**
-     * @param $test
+     * @param int $test
      * @param string $want
-     * @param $have
+     * @param int $have
      * @return bool
      * @throws \Exception
      */

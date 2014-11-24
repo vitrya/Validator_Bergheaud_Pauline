@@ -16,7 +16,7 @@ namespace Pauline\Validator;
 class BooleanValidator
 {
     /**
-     * @param $boolean
+     * @param boolean $boolean
      * @return boolean
      * @throws \Exception
      */

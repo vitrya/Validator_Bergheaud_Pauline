@@ -46,7 +46,7 @@ class ArrayValidator
     /**
      * @param $array
      * @param string $min
-     * @param $max
+     * @param int $max
      * @return bool
      * @throws \Exception
      */
@@ -65,8 +65,8 @@ class ArrayValidator
 
     /**
      * @param $array
-     * @param $valueOrKey
-     * @param $key
+     * @param string $valueOrKey
+     * @param string|int $key
      * @return bool
      * @throws \Exception
      */
