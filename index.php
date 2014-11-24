@@ -36,7 +36,7 @@ echo '</br> String between: ';
 echo \Pauline\Validator\StringValidator::lengthBetween($string, \Pauline\Validator\StringValidator::SUPERIOR, 50);
 
 echo '</br>String Nomber element in array between :';
-echo \Pauline\Validator\ArrayValidator::numberElementsBetween($array, 0, 5);
+echo \Pauline\Validator\ArrayValidator::numberElementsBetween($array, \Pauline\Validator\ArrayValidator::SUPERIOR, 5);
 
 echo '</br>key: ';
 echo \Pauline\Validator\ArrayValidator::keyExists($array, $key);

@@ -27,7 +27,7 @@ class IntegerValidator
     public static function equal ($integer, $number) {
         if (is_int ($integer) === false) throw new \Exception('Integer not integer');
         if (is_int ($number) === false) throw new \Exception('Number not integer');
-        $bool = ($number === $integer) ? 'True' : 'False';
+        $bool = ($number === $integer) ? true : false;
         return $bool;
     }
 
@@ -65,7 +65,7 @@ class IntegerValidator
         $boolMin = ($min === 'M' || $test >= $min) ? true : false;
         $boolMax = ($max === 'P' || $test <= $max) ? true : false;
 
-        $bool = ($boolMin === true && $boolMax === true) ? 'True' : 'False';
+        $bool = ($boolMin === true && $boolMax === true) ? true : false;
 
         return $bool;
     }

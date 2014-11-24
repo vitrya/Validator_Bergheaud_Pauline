@@ -34,7 +34,7 @@ class StringValidator
      */
     public static function noWhiteSpace ($string) {
         if (is_string ($string) === false) throw new \Exception('String is not a string');
-        $returnString = ((substr_count ($string, ' ')) === 0) ? 'True' : 'False';
+        $returnString = ((substr_count ($string, ' ')) === 0) ? true : false;
         return $returnString;
     }
 
@@ -52,16 +52,16 @@ class StringValidator
         if ($max < $min) throw new \Exception('Max smaller than min');
 
         $length       = strlen ($string);
-        $returnString = 'False';
+        $returnString = false;
 
         if ($min === self::INFERIOR) {
-            if ($length < $max) $returnString = 'True';
+            if ($length < $max) $returnString = true;
         }
         if ($min === self::SUPERIOR) {
-            if ($length > $max) $returnString = 'True';
+            if ($length > $max) $returnString = true;
         }
         if (is_int ($min) === true){
-            if ($length < $max && $length > $min) $returnString = 'True';
+            if ($length < $max && $length > $min) $returnString = true;
         }
         return $returnString;
     }

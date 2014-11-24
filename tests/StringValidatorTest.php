@@ -19,7 +19,7 @@ class StringValidatorTest extends \PHPUnit_Framework_TestCase
             $stringTest .= mb_substr($stringTest, mt_rand(0, (mb_strlen ($stringTest) - 1)),1);
         }
         $stringValid = StringValidator::noWhiteSpace($stringTest);
-        $this->assertEquals($stringValid, 'True');
+        $this->assertEquals($stringValid, true);
     }
     public function testStringValidatorWhiteSpace() {
         $string = ' b';
@@ -27,7 +27,7 @@ class StringValidatorTest extends \PHPUnit_Framework_TestCase
             $string .= ' ';
         }
         $stringValid = StringValidator::noWhiteSpace($string);
-        $this->assertEquals($stringValid, 'False');
+        $this->assertEquals($stringValid, false);
     }
     public function testStringValidatorNotSuperior() {
         $string = 'b';
@@ -36,7 +36,7 @@ class StringValidatorTest extends \PHPUnit_Framework_TestCase
             $string .= 'b';
         }
         $stringValid = StringValidator::lengthBetween($string, StringValidator::SUPERIOR, $rand);
-        $this->assertEquals($stringValid, 'False');
+        $this->assertEquals($stringValid, false);
     }
     public function testStringValidatorInferior() {
         $string = 'b';
@@ -45,7 +45,7 @@ class StringValidatorTest extends \PHPUnit_Framework_TestCase
             $string .= 'b';
         }
         $stringValid = StringValidator::lengthBetween($string, StringValidator::INFERIOR, $rand);
-        $this->assertEquals($stringValid, 'True');
+        $this->assertEquals($stringValid, true);
     }
     public function testStringValidatorBetween() {
         $string = 'b';
@@ -55,7 +55,7 @@ class StringValidatorTest extends \PHPUnit_Framework_TestCase
             $string .= 'b';
         }
         $stringValid = StringValidator::lengthBetween($string, $rand, $rand2);
-        $this->assertEquals($stringValid, 'True');
+        $this->assertEquals($stringValid, true);
     }
 
 

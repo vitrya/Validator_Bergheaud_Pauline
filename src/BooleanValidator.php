@@ -22,7 +22,7 @@ class BooleanValidator
      */
     public static function isTrue($boolean) {
         if (is_bool($boolean) === false) throw new \Exception('Boolean is not boolean');
-        $returnBoolean = ($boolean === true) ? 'True' : 'False';
+        $returnBoolean = ($boolean === true) ? true : false;
         return $returnBoolean;
     }
 }
