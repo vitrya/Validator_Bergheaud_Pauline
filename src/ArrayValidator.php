@@ -9,6 +9,10 @@
 namespace Pauline\Validator;
 
 
+/**
+ * Class ArrayValidator
+ * @package Pauline\Validator
+ */
 class ArrayValidator
 {
     const EQUAL             = 'E';
@@ -19,8 +23,15 @@ class ArrayValidator
     const KEY               = 0;
     const VALUE             = 1;
 
+    /**
+     * @param $array
+     * @param string $min
+     * @param $max
+     * @return bool
+     * @throws \Exception
+     */
     public static function numberElementsBetween($array, $min = self::EQUAL, $max) {
-        if (is_int ($min) === false && $min !== 'S' && $min !== 'E' && $min !== 'SE' && $min !== 'I' && $min !== 'IE') throw new \Exception('Min is not integer');
+        //if (is_int ($min) === false && $min !== 'S' && $min !== 'E' && $min !== 'SE' && $min !== 'I' && $min !== 'IE') throw new \Exception('Min is not integer');
         if (is_int ($max) === false) throw new \Exception('Max is not integer');
         if (is_array ($array) === false) throw new \Exception('Array is not an array');
 
@@ -42,19 +53,26 @@ class ArrayValidator
         return $boolNumberElement;
     }
 
+    /**
+     * @param $array
+     * @param $valueOrKey
+     * @param $key
+     * @return bool
+     * @throws \Exception
+     */
     public static function keyExists($array, $valueOrKey, $key) {
         if (is_array ($array) === false) throw new \Exception('Array is not an array');
-        if ($valueOrKey ==! 0 && $valueOrKey ==! 1) throw new \Exception('ValueOrKey, you have to chose');
+        if ($valueOrKey !== 0 && $valueOrKey !== 1) throw new \Exception('ValueOrKey, you have to chose');
         if (is_int ($key) === false && is_string ($key) === false) throw new \Exception('Argument is not a key or a value');
 
         $returnExist = false;
 
         switch ($valueOrKey){
             case self::KEY:
-                if (array_key_exists ($key, $array)) $returnExist = true;
+                if (array_key_exists ($key, $array) === true) $returnExist = true;
                 break;
             case self::VALUE:
-                if (in_array ($key, $array)) $returnExist = true;
+                if (in_array ($key, $array) === true) $returnExist = true;
                 break;
         }
         return $returnExist;

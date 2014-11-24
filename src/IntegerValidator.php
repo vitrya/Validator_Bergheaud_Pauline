@@ -12,6 +12,10 @@ namespace Pauline\Validator;
  * Class IntegerValidator
  * @package Pauline\Validator
  */
+/**
+ * Class IntegerValidator
+ * @package Pauline\Validator
+ */
 class IntegerValidator
 {
 
@@ -37,7 +41,7 @@ class IntegerValidator
      * @param int|string $max
      * @throws \Exception min include
      * max include
-     * @return string
+     * @return boolean
      */
 
     public static function between($test, $min = 0, $max = self::PLUS_INFINITY) {

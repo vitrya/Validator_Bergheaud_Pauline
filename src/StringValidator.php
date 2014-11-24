@@ -17,19 +17,17 @@ namespace Pauline\Validator;
  * Class StringValidator
  * @package Pauline\Validator
  */
+/**
+ * Class StringValidator
+ * @package Pauline\Validator
+ */
 class StringValidator
 {
-    /**
-     *
-     */
     const SUPERIOR = 'S';
-    /**
-     *
-     */
     const INFERIOR = 'I';
     /**
      * @param $string
-     * @return string
+     * @return boolean
      * @throws \Exception
      */
     public static function noWhiteSpace ($string) {
@@ -42,7 +40,7 @@ class StringValidator
      * @param $string
      * @param int $min
      * @param $max
-     * @return string
+     * @return boolean
      * @throws \Exception
      */
     public static function lengthBetween ($string, $min = 0, $max) {
