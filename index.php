@@ -19,7 +19,7 @@ $array   = [
     'chien' => 'dog',
 ];
 $key    = 'chat';
-
+/*
 echo 'Int equal: ';
 echo \Pauline\Validator\IntegerValidator::equal ($integer,12);
 
@@ -40,5 +40,11 @@ echo \Pauline\Validator\ArrayValidator::numberElementsBetween($array, \Pauline\V
 
 echo '</br>key: ';
 //echo \Pauline\Validator\ArrayValidator::keyExists($array, $key);
+*/
+
+$date = new \DateTime();
+echo $date->format('Y');
+
+echo \Pauline\Validator\DateTimeValidator::isYear($date,2014);
 
 
