@@ -41,4 +41,24 @@ class ArrayValidatorTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($testArray);
     }
 
+    public function testValidatorArrayValue() {
+        $rand = rand(1,20);
+        $array = [];
+        for ($i = 0; $i < $rand; $i++) {
+            $array [$i] = 'a';
+        }
+        $testArray = ArrayValidator::keyExists($array,ArrayValidator::VALUE, 'a' );
+        $this->assertTrue($testArray);
+
+    }public function testValidatorArrayNotKey() {
+        $rand = rand(1,20);
+        $array = [];
+        for ($i = 0; $i < $rand; $i++) {
+            $array [$i] = 'a';
+        }
+        $testArray = ArrayValidator::keyExists($array,ArrayValidator::KEY, '30' );
+        $this->assertFalse($testArray);
+
+    }
+
 } 
