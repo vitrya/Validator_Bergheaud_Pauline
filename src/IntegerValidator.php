@@ -54,9 +54,9 @@ class IntegerValidator
         if (is_int ($have) === false) throw new \Exception('have is not integer');
         if ($want !== 'E' && $want !== 'S' && $want !== 'SE' && $want !== 'I' && $want !== 'IE') throw new \Exception('have is not integer');
 
-        $bool = ($want === ((self::EQUAL && $test === $have)
-            || (self::SUPERIOR && $test > $have) || (self::SUPERIOR_OR_EQUAL && $test >= $have)
-            || (self::INFERIOR && $test < $have) || (self::INFERIOR_OR_EQUAL && $test <= $have))) ? true : false;
+        $bool = (($want === self::EQUAL && $test === $have)
+            || ($want === self::SUPERIOR && $test > $have) || ($want === self::SUPERIOR_OR_EQUAL && $test >= $have)
+            || ($want === self::INFERIOR && $test < $have) || ($want === self::INFERIOR_OR_EQUAL && $test <= $have)) ? true : false;
 
         return $bool;
     }
