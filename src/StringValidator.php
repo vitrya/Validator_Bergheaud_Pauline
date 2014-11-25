@@ -8,7 +8,6 @@
 
 namespace Pauline\Validator;
 
-
 /**
  * Class StringValidator
  * @package Pauline\Validator
@@ -74,8 +73,7 @@ class StringValidator
         if (false === is_int ($max)) throw new \Exception('Max is not integer');
 
         $length       = strlen ($string);
-        $returnString = (($min === self::INFERIOR && $length < $max) || ($min === self::SUPERIOR && $length > $max)
-            || $min === self::EQUAL && $length === $max) ? true : false;
+        $returnString = (($min === self::INFERIOR && $length < $max) || ($min === self::SUPERIOR && $length > $max) || $min === self::EQUAL && $length === $max) ? true : false;
         return $returnString;
     }
 }

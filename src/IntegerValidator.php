@@ -52,19 +52,10 @@ class IntegerValidator
     public static function comparison ($test, $want = self::EQUAL, $have) {
         if (false === is_int ($test)) throw new \Exception('test is not integer');
         if (false === is_int ($have)) throw new \Exception('have is not integer');
-        if (false === in_array ($want, [
-                self::EQUAL,
-                self::SUPERIOR,
-                self::SUPERIOR_OR_EQUAL,
-                self::INFERIOR,
-                self::INFERIOR_OR_EQUAL,
-            ])){
-            throw new \Exception('Bad sting');
-        }
+        if ($want !== 'E' && $want !== 'S' && $want !== 'SE' && $want !== 'I' && $want !== 'IE') throw new \Exception('have is not integer');
 
-        $bool = (($want === self::EQUAL && $test === $have)
-            || ($want === self::SUPERIOR && $test > $have) || ($want === self::SUPERIOR_OR_EQUAL && $test >= $have)
-            || ($want === self::INFERIOR && $test < $have) || ($want === self::INFERIOR_OR_EQUAL && $test <= $have)) ? true : false;
+
+        $bool = (($want === self::EQUAL && $test === $have) || ($want === self::SUPERIOR && $test > $have) || ($want === self::SUPERIOR_OR_EQUAL && $test >= $have) || ($want === self::INFERIOR && $test < $have) || ($want === self::INFERIOR_OR_EQUAL && $test <= $have)) ? true : false;
 
         return $bool;
     }
