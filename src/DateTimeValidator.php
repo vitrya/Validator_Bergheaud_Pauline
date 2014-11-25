@@ -21,7 +21,8 @@ class DateTimeValidator
      * @return bool
      */
     public static function isYear(\dateTime $dateTime, $year) {
-        $resDat = (intval($dateTime->format('Y')) === intval($year)) ? true : false;
+        $year = intval($year);
+        $resDat = (intval($dateTime->format('Y')) === $year) ? true : false;
         return $resDat;
     }
 
@@ -33,7 +34,10 @@ class DateTimeValidator
      * @return bool
      */
     public static function isDate(\dateTime $dateTime, $year, $month, $day) {
-        $resDat = (intval($dateTime->format('Y')) === intval($year) && intval($dateTime->format('m')) === intval($month) && intval($dateTime->format('d')) === intval($day)) ? true : false;
+        $year = intval($year);
+        $month = intval($month);
+        $day = intval($day);
+        $resDat = (intval($dateTime->format('Y')) === $year && intval($dateTime->format('m')) === $month && intval($dateTime->format('d')) === $day) ? true : false;
         return $resDat;
     }
 }
