@@ -56,9 +56,7 @@ class ArrayValidator
         if (is_array ($array) === false) throw new \Exception('Array is not an array');
 
         $length            = count ($array);
-        $boolNumberElement = (($min === self::EQUAL && $length === $max)
-            || ($min === self::SUPERIOR && $length > $max) || ($min === self::SUPERIOR_OR_EQUAL && $length >= $max)
-            || ($min === self::INFERIOR && $length < $max) || ($min === self::INFERIOR_OR_EQUAL && $length <= $max)) ? true : false;
+        $boolNumberElement = (($min === self::EQUAL && $length === $max) || ($min === self::SUPERIOR && $length > $max) || ($min === self::SUPERIOR_OR_EQUAL && $length >= $max) || ($min === self::INFERIOR && $length < $max) || ($min === self::INFERIOR_OR_EQUAL && $length <= $max)) ? true : false;
 
         return $boolNumberElement;
     }
