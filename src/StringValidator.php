@@ -32,7 +32,7 @@ class StringValidator
      * @throws \Exception
      */
     public static function noWhiteSpace ($string) {
-        if (is_string ($string) === false) throw new \Exception('String is not a string');
+        if (false === is_string ($string)) throw new \Exception('String is not a string');
         $returnString = ((substr_count ($string, ' ')) === 0) ? true : false;
         return $returnString;
     }
@@ -45,9 +45,9 @@ class StringValidator
      * @throws \Exception
      */
     public static function lengthBetween ($string, $min = 0, $max) {
-        if (is_string ($string) === false) throw new \Exception('String is not a string');
-        if (is_int ($min) === false) throw new \Exception('Min is not integer');
-        if (is_int ($max) === false) throw new \Exception('Max is not integer');
+        if (false === is_string ($string)) throw new \Exception('String is not a string');
+        if (false === is_int ($min)) throw new \Exception('Min is not integer');
+        if (false === is_int ($max)) throw new \Exception('Max is not integer');
         if ($max < $min) throw new \Exception('Max smaller than min');
 
         $length       = strlen ($string);
@@ -63,9 +63,15 @@ class StringValidator
      * @throws \Exception
      */
     public static function lengthComparison ($string, $min, $max) {
-        if (is_string ($string) === false) throw new \Exception('String is not a string');
-        if ($min !== 'S' && $min !== 'I' && $min !== 'E') throw new \Exception('Not good argument');
-        if (is_int ($max) === false) throw new \Exception('Max is not integer');
+        if (false === is_string ($string)) throw new \Exception('String is not a string');
+        if (false === in_array ($min, [
+                self::EQUAL,
+                self::SUPERIOR,
+                self::INFERIOR,
+            ])){
+            throw new \Exception('Not good argument');
+        }
+        if (false === is_int ($max)) throw new \Exception('Max is not integer');
 
         $length       = strlen ($string);
         $returnString = (($min === self::INFERIOR && $length < $max) || ($min === self::SUPERIOR && $length > $max)

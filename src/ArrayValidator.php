@@ -16,11 +16,11 @@ namespace Pauline\Validator;
 
 class ArrayValidator
 {
-    const EQUAL             = 'E';
-    const SUPERIOR          = 'S';
-    const SUPERIOR_OR_EQUAL = 'SE';
-    const INFERIOR          = 'I';
-    const INFERIOR_OR_EQUAL = 'IE';
+    const EQUAL             = 0;
+    const SUPERIOR          = 1;
+    const SUPERIOR_OR_EQUAL = 2;
+    const INFERIOR          = 3;
+    const INFERIOR_OR_EQUAL = 4;
     const KEY               = 0;
     const VALUE             = 1;
 
@@ -32,10 +32,10 @@ class ArrayValidator
      * @throws \Exception
      */
     public static function numberElementsBetween($array, $min = 0, $max) {
-        if (is_int ($min) === false) throw new \Exception('Min is not integer');
-        if (is_int ($max) === false) throw new \Exception('Max is not integer');
+        if (false === is_int ($min)) throw new \Exception('Min is not integer');
+        if (false === is_int ($max)) throw new \Exception('Max is not integer');
         if ($max < $min) throw new \Exception('Max is smaller than min');
-        if (is_array ($array) === false) throw new \Exception('Array is not an array');
+        if (false === is_array ($array)) throw new \Exception('Array is not an array');
 
         $length            = count ($array);
         $boolNumberElement = ($length >= $min && $length <= $max) ? true : false;
@@ -51,14 +51,14 @@ class ArrayValidator
      * @throws \Exception
      */
     public static function numberElementsComparison($array, $min = self::EQUAL, $max) {
-        if(false === in_array($min, [
+        if (false === in_array ($min, [
                 self::EQUAL,
                 self::SUPERIOR,
                 self::SUPERIOR_OR_EQUAL,
                 self::INFERIOR,
                 self::INFERIOR_OR_EQUAL,
             ])){
-            throw new \Exception('Bad strength');
+            throw new \Exception('Bad sting');
         }
         if (false === is_int ($max)) throw new \Exception('Max is not integer');
         if (false === is_array ($array)) throw new \Exception('Array is not an array');
@@ -77,9 +77,14 @@ class ArrayValidator
      * @throws \Exception
      */
     public static function keyExists($array, $valueOrKey, $key) {
-        if (is_array ($array) === false) throw new \Exception('Array is not an array');
-        if ($valueOrKey !== 0 && $valueOrKey !== 1) throw new \Exception('ValueOrKey, you have to chose');
-        if (is_int ($key) === false && is_string ($key) === false) throw new \Exception('Argument is not a key or a value');
+        if (false === is_array ($array)) throw new \Exception('Array is not an array');
+        if (false === in_array ($valueOrKey, [
+                self::KEY,
+                self::VALUE,
+            ])){
+            throw new \Exception('ValueOrKey, you have to chose');
+        }
+        if (false === is_int ($key) && false === is_string ($key)) throw new \Exception('Argument is not a key or a value');
 
         $returnExist = (($valueOrKey === self::KEY && array_key_exists ($key, $array) === true) || ($valueOrKey === self::VALUE && in_array ($key, $array) === true)) ? true : false;
         return $returnExist;

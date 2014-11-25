@@ -33,9 +33,9 @@ class IntegerValidator
 
     public static function between ($test, $min = 0, $max) {
 
-        if (is_int ($test) === false) throw new \Exception('test is not integer');
-        if (is_int ($min) === false) throw new \Exception('min is not integer or minimum');
-        if (is_int ($max) === false) throw new \Exception('max is not integer or maximum');
+        if (false === is_int ($test)) throw new \Exception('test is not integer');
+        if (false === is_int ($min)) throw new \Exception('min is not integer or minimum');
+        if (false === is_int ($max)) throw new \Exception('max is not integer or maximum');
         if ($min > $max) throw new \Exception('max smaller than min');
 
         $bool = ($test >= $min && $test <= $max) ? true : false;
@@ -50,9 +50,17 @@ class IntegerValidator
      * @throws \Exception
      */
     public static function comparison ($test, $want = self::EQUAL, $have) {
-        if (is_int ($test) === false) throw new \Exception('test is not integer');
-        if (is_int ($have) === false) throw new \Exception('have is not integer');
-        if ($want !== 'E' && $want !== 'S' && $want !== 'SE' && $want !== 'I' && $want !== 'IE') throw new \Exception('have is not integer');
+        if (false === is_int ($test)) throw new \Exception('test is not integer');
+        if (false === is_int ($have)) throw new \Exception('have is not integer');
+        if (false === in_array ($want, [
+                self::EQUAL,
+                self::SUPERIOR,
+                self::SUPERIOR_OR_EQUAL,
+                self::INFERIOR,
+                self::INFERIOR_OR_EQUAL,
+            ])){
+            throw new \Exception('Bad sting');
+        }
 
         $bool = (($want === self::EQUAL && $test === $have)
             || ($want === self::SUPERIOR && $test > $have) || ($want === self::SUPERIOR_OR_EQUAL && $test >= $have)
