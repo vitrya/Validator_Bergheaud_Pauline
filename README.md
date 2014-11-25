@@ -1,10 +1,10 @@
 # Validator
 
-[![Build Status](https://travis-ci.org/vitrya/Validator_Pauline_Bergheaud.svg?branch=master)](https://travis-ci.org/vitrya/Validator_Pauline_Bergheaud)
+[![Build Status](https://travis-ci.org/vitrya/Validator_Bergheaud_Pauline.svg?branch=master)](https://travis-ci.org/vitrya/Validator_Bergheaud_Pauline)
 
-[![Code Coverage](https://scrutinizer-ci.com/g/vitrya/Validator_Pauline_Bergheaud/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/vitrya/Validator_Pauline_Bergheaud/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/vitrya/Validator_Bergheaud_Pauline/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/vitrya/Validator_Bergheaud_Pauline/?branch=master)
 
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/vitrya/Validator_Pauline_Bergheaud/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/vitrya/Validator_Pauline_Bergheaud/?branch=master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/vitrya/Validator_Bergheaud_Pauline/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/vitrya/Validator_Bergheaud_Pauline/?branch=master)
 
 ## Array
 ArrayValidator::numberElementsBetween ($array, int $min = 0, int $max)

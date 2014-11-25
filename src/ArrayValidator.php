@@ -6,6 +6,7 @@
  * Time: 00:17
  */
 namespace Pauline\Validator;
+
 /**
  * Class ArrayValidator
  * @package Pauline\Validator

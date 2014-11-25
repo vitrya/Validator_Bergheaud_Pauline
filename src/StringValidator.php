@@ -6,6 +6,7 @@
  * Time: 17:46
  */
 namespace Pauline\Validator;
+
 /**
  * Class StringValidator
  * @package Pauline\Validator

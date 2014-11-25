@@ -6,6 +6,7 @@
  * Time: 16:41
  */
 namespace Pauline\Validator;
+
 /**
  * Class IntegerValidator
  * @package Pauline\Validator
@@ -40,7 +41,7 @@ class IntegerValidator
      * @return bool
      * @throws \Exception
      */
-    public static function comparison ($test, $want = self::EQUAL, $have){
+    public static function comparison ($test, $want = self::EQUAL, $have) {
         if (false === is_int ($test)) throw new \Exception('test is not integer');
         if (false === is_int ($have)) throw new \Exception('have is not integer');
         if ($want !== self::EQUAL && $want !== self::SUPERIOR && $want !== self::SUPERIOR_OR_EQUAL && $want !== self::INFERIOR && $want !== self::INFERIOR_OR_EQUAL) throw new \Exception('have is not integer');

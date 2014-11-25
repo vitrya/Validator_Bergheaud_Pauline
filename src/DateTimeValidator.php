@@ -6,6 +6,7 @@
  * Time: 19:07
  */
 namespace Pauline\Validator;
+
 /**
  * Class DateTimeValidator
  * @package Pauline\Validator

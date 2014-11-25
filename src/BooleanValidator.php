@@ -5,14 +5,12 @@
  * Date: 23/11/2014
  * Time: 17:27
  */
-
 namespace Pauline\Validator;
 
 /**
  * Class BooleanValidator
  * @package Pauline\Validator
  */
-
 class BooleanValidator
 {
     /**
