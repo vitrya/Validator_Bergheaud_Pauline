@@ -60,8 +60,8 @@ class ArrayValidator
             ])){
             throw new \Exception('Bad sting');
         }
-        if (false === is_int ($max)) throw new \Exception('Max is not integer');
-        if (false === is_array ($array)) throw new \Exception('Array is not an array');
+        if (is_int ($max) === false) throw new \Exception('Max is not integer');
+        if (is_array ($array) === false) throw new \Exception('Array is not an array');
 
         $length            = count ($array);
         $boolNumberElement = (($min === self::EQUAL && $length === $max) || ($min === self::SUPERIOR && $length > $max) || ($min === self::SUPERIOR_OR_EQUAL && $length >= $max) || ($min === self::INFERIOR && $length < $max) || ($min === self::INFERIOR_OR_EQUAL && $length <= $max)) ? true : false;
