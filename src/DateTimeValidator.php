@@ -16,7 +16,9 @@ class DateTimeValidator
         return $resDat;
     }
     public static function isDate(\dateTime $dateTime, $year, $month, $day) {
-        $resDat = (intval($dateTime->format('Y')) === intval($year) && intval($dateTime->format('m')) === intval($month) && intval($dateTime->format('d')) === intval($day)) ? true : false;
+        $resDat = (intval($dateTime->format('Y')) === intval($year)
+            && intval($dateTime->format('m')) === intval($month)
+            && intval($dateTime->format('d')) === intval($day)) ? true : false;
         return $resDat;
     }
 }

@@ -24,7 +24,7 @@ class DateTimeValidatorTest extends \PHPUnit_Framework_TestCase
     }
     public function testValidatorDateTimeIsDate(){
         $date = new \DateTime();
-        $dateTest = DateTimeValidator::isYear($date, $date->format('y'), $date->format('m'), $date->format('d'));
+        $dateTest = DateTimeValidator::isYear($date, $date->format('Y'), $date->format('m'), $date->format('d'));
         $this->assertTrue($dateTest);
     }
     public function testValidatorDateTimeIsNotDate(){
