@@ -51,9 +51,17 @@ class ArrayValidator
      * @throws \Exception
      */
     public static function numberElementsComparison($array, $min = self::EQUAL, $max) {
-        if ($min !== 'S' && $min !== 'E' && $min !== 'SE' && $min !== 'I' && $min !== 'IE') throw new \Exception('Min have not good argument');
-        if (is_int ($max) === false) throw new \Exception('Max is not integer');
-        if (is_array ($array) === false) throw new \Exception('Array is not an array');
+        if(false === in_array($min, [
+                self::EQUAL,
+                self::SUPERIOR,
+                self::SUPERIOR_OR_EQUAL,
+                self::INFERIOR,
+                self::INFERIOR_OR_EQUAL,
+            ])){
+            throw new \Exception('Bad strength');
+        }
+        if (false === is_int ($max)) throw new \Exception('Max is not integer');
+        if (false === is_array ($array)) throw new \Exception('Array is not an array');
 
         $length            = count ($array);
         $boolNumberElement = (($min === self::EQUAL && $length === $max) || ($min === self::SUPERIOR && $length > $max) || ($min === self::SUPERIOR_OR_EQUAL && $length >= $max) || ($min === self::INFERIOR && $length < $max) || ($min === self::INFERIOR_OR_EQUAL && $length <= $max)) ? true : false;
