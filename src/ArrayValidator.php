@@ -5,15 +5,11 @@
  * Date: 24/11/2014
  * Time: 00:17
  */
-
 namespace Pauline\Validator;
-
-
 /**
  * Class ArrayValidator
  * @package Pauline\Validator
  */
-
 class ArrayValidator
 {
     const EQUAL             = 0;
@@ -23,7 +19,6 @@ class ArrayValidator
     const INFERIOR_OR_EQUAL = 4;
     const KEY               = 0;
     const VALUE             = 1;
-
     /**
      * @param $array
      * @param int $min
@@ -36,13 +31,10 @@ class ArrayValidator
         if (false === is_int ($max)) throw new \Exception('Max is not integer');
         if ($max < $min) throw new \Exception('Max is smaller than min');
         if (false === is_array ($array)) throw new \Exception('Array is not an array');
-
         $length            = count ($array);
         $boolNumberElement = ($length >= $min && $length <= $max) ? true : false;
-
         return $boolNumberElement;
     }
-
     /**
      * @param $array
      * @param int $min
@@ -62,13 +54,10 @@ class ArrayValidator
         }
         if (is_int ($max) === false) throw new \Exception('Max is not integer');
         if (is_array ($array) === false) throw new \Exception('Array is not an array');
-
         $length            = count ($array);
         $boolNumberElement = (($min === self::EQUAL && $length === $max) || ($min === self::SUPERIOR && $length > $max) || ($min === self::SUPERIOR_OR_EQUAL && $length >= $max) || ($min === self::INFERIOR && $length < $max) || ($min === self::INFERIOR_OR_EQUAL && $length <= $max)) ? true : false;
-
         return $boolNumberElement;
     }
-
     /**
      * @param $array
      * @param string $valueOrKey
@@ -85,7 +74,6 @@ class ArrayValidator
             throw new \Exception('ValueOrKey, you have to chose');
         }
         if (false === is_int ($key) && false === is_string ($key)) throw new \Exception('Argument is not a key or a value');
-
         $returnExist = (($valueOrKey === self::KEY && array_key_exists ($key, $array) === true) || ($valueOrKey === self::VALUE && in_array ($key, $array) === true)) ? true : false;
         return $returnExist;
     }

@@ -5,10 +5,7 @@
  * Date: 24/11/2014
  * Time: 19:07
  */
-
 namespace Pauline\Validator;
-
-
 /**
  * Class DateTimeValidator
  * @package Pauline\Validator
@@ -25,7 +22,6 @@ class DateTimeValidator
         $resDat = (intval($dateTime->format('Y')) === $year) ? true : false;
         return $resDat;
     }
-
     /**
      * @param \dateTime $dateTime
      * @param $year

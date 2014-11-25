@@ -5,17 +5,7 @@
  * Date: 23/11/2014
  * Time: 17:46
  */
-
 namespace Pauline\Validator;
-
-/**
- * Class StringValidator
- * @package Pauline\Validator
- */
-/**
- * Class StringValidator
- * @package Pauline\Validator
- */
 /**
  * Class StringValidator
  * @package Pauline\Validator
@@ -35,7 +25,6 @@ class StringValidator
         $returnString = ((substr_count ($string, ' ')) === 0) ? true : false;
         return $returnString;
     }
-
     /**
      * @param string $string
      * @param int $min
@@ -48,12 +37,10 @@ class StringValidator
         if (false === is_int ($min)) throw new \Exception('Min is not integer');
         if (false === is_int ($max)) throw new \Exception('Max is not integer');
         if ($max < $min) throw new \Exception('Max smaller than min');
-
         $length       = strlen ($string);
         $returnString = ($length < $max && $length > $min) ? true : false;
         return $returnString;
     }
-
     /**
      * @param string $string
      * @param string $min
@@ -68,10 +55,8 @@ class StringValidator
                 self::SUPERIOR,
                 self::INFERIOR,
             ])){
-            throw new \Exception('Not good argument');
-        }
+            throw new \Exception('Not good argument');        }
         if (false === is_int ($max)) throw new \Exception('Max is not integer');
-
         $length       = strlen ($string);
         $returnString = (($min === self::INFERIOR && $length < $max) || ($min === self::SUPERIOR && $length > $max) || $min === self::EQUAL && $length === $max) ? true : false;
         return $returnString;
