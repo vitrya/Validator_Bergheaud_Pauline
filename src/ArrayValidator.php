@@ -73,16 +73,7 @@ class ArrayValidator
         if ($valueOrKey !== 0 && $valueOrKey !== 1) throw new \Exception('ValueOrKey, you have to chose');
         if (is_int ($key) === false && is_string ($key) === false) throw new \Exception('Argument is not a key or a value');
 
-        $returnExist = false;
-
-        switch ($valueOrKey){
-            case self::KEY:
-                if (array_key_exists ($key, $array) === true) $returnExist = true;
-                break;
-            case self::VALUE:
-                if (in_array ($key, $array) === true) $returnExist = true;
-                break;
-        }
+        $returnExist = (($valueOrKey === self::KEY && array_key_exists ($key, $array) === true) || ($valueOrKey === self::VALUE && in_array ($key, $array) === true)) ? true : false;
         return $returnExist;
     }
 }
