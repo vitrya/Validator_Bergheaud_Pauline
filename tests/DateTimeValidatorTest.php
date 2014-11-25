@@ -24,22 +24,22 @@ class DateTimeValidatorTest extends \PHPUnit_Framework_TestCase
     }
     public function testValidatorDateTimeIsDate(){
         $date = new \DateTime();
-        $dateTest = DateTimeValidator::isYear($date, $date->format('Y'), $date->format('m'), $date->format('d'));
+        $dateTest = DateTimeValidator::isDate($date, $date->format('Y'), $date->format('m'), $date->format('d'));
         $this->assertTrue($dateTest);
     }
     public function testValidatorDateTimeIsDateNotYear(){
         $date = new \DateTime();
-        $dateTest = DateTimeValidator::isYear($date, 2000, $date->format('m'), $date->format('d'));
+        $dateTest = DateTimeValidator::isDate($date, 2000, $date->format('m'), $date->format('d'));
         $this->assertFalse($dateTest);
     }
     public function testValidatorDateTimeIsDateNotMonth(){
         $date = new \DateTime();
-        $dateTest = DateTimeValidator::isYear($date, $date->format('Y'), '15', $date->format('d'));
+        $dateTest = DateTimeValidator::isDate($date, $date->format('Y'), 15, $date->format('d'));
         $this->assertFalse($dateTest);
     }
     public function testValidatorDateTimeIsDateNotDay(){
         $date = new \DateTime();
-        $dateTest = DateTimeValidator::isYear($date, $date->format('Y'), $date->format('m'), '50');
+        $dateTest = DateTimeValidator::isDate($date, $date->format('Y'), $date->format('m'), 50);
         $this->assertFalse($dateTest);
     }
 }
